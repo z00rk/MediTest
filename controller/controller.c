@@ -100,7 +100,7 @@ struct s_controller_context *controller_init (void)
 
   // starting the machine
 
-  ret = message_register_callback (ctrl->octopus->message_ctx, controller_msg_cbk);
+  ret = octopus_register_callback (ctrl->octopus, controller_msg_cbk);
   if (ret) {
     printf ("error registering callback\n");
     // octopus_destroy (ctrl->octopus); @TODO
@@ -108,7 +108,7 @@ struct s_controller_context *controller_init (void)
     return NULL;
   }
 
-  printf ("[INIT] octopus running - starting the server\n");
+  printf ("[INIT] octopus running - starting the server %p\n", controller_receive);
 
   ctrl->server = ws_server_init ("lo",
                                  2015,

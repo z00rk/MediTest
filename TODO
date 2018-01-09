@@ -6,6 +6,9 @@ PROGRESS:
 
 NEXT:
   - JSON-RPC Parser
+  - Makefiles / autoconf setup
+  - Defining the command list + event lists
+  - Interface bootup
   - logging utility
   - 
 

@@ -145,7 +145,7 @@ int32_t ws_server_callback (struct libwebsocket_context *context,
 {
   struct s_ws_client *client;
   struct s_ws_reply  *reply;
-  struct s_ws_server *server = (struct s_ws_server *) data;
+  struct s_ws_server *server = (struct s_ws_server *) libwebsocket_context_user (context);
   size_t w, s;
   int opts = 0;
 

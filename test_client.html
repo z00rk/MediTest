@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<script type="text/javascript">
+var remote_wss_ip_address ;
+var remote_wss_port ;
+var remote_wss_service ;
+var temp = window.location.toString() ;
+remote_wss_ip_address ="127.0.0.1";
+remote_wss_port ="2015";
+remote_wss_service ="lws-bidirectional-protocol";
+console.log("temp = " +temp);
+var url_ws = "ws://"+remote_wss_ip_address+":"+remote_wss_port ;
+//open a web socket for sendind message to the STB.
+var socket_monitor ;
+socket_monitor = new WebSocket(url_ws,remote_wss_service);
+socket_monitor.onopen = socketTX_onopen;
+socket_monitor.onclose= socketTX_onclose;
+socket_monitor.onmessage=socketTX_onmessage;
+
+var id = 0;
+
+function WebSocketSending(str)
+{
+  socket_monitor.send(str);
+}
+
+function socketTX_onopen()
+{
+ cpt=0;
+  write_in_console("socket : Connection opened "+socket_monitor.readyState);
+};
+
+function socketTX_onmessage(evt)
+{
+  write_in_console("RX: "+evt.data);
+  var obj = JSON.parse(evt.data);
+  // [{"jsonrpc":"2.0","result":{"id":23},"id":"1"}]
+  // write_in_console("result: "+obj[0].result);
+  // write_in_console("result id: "+obj[0].result.id);
+  if (obj[0].result.id)
+    id = obj[0].result.id;
+  // write_in_console("global id: "+id);
+};
+
+function socketTX_onclose()
+{
+  write_in_console("Connection closed");
+};
+
+function write_in_console(a)
+{
+var historydiv=document.getElementById("historydiv");
+var currenthtml=historydiv.innerHTML;
+var newHTMLstring=currenthtml+"<br>"+a;
+historydiv.innerHTML=newHTMLstring;
+//historydiv.appendChild(document.createTextNode(a));
+}
+
+cptdiv=1
+function write_in_doc(a)
+{
+console.log(a);
+
+var getheaddiv= document.getElementById("headdiv");
+var currenthtml=getheaddiv.innerHTML;
+var newHTMLstring=currenthtml+"<br>"+a;
+getheaddiv.innerHTML=newHTMLstring;
+//myDiv2.appendChild(document.createTextNode("More random text."));
+}
+
+function send_string(event)
+{
+  write_in_console("TX:"+event);
+  WebSocketSending(event);
+}
+
+
+</script>
+<title> Websocket Test </title>
+</head>
+<body>
+
+<H1><b> Test Page </b> </H1>
+
+<div id="historydiv" style="background-color:#000000; color:#66cc33; cursor:text; height:500pt;overflow:auto;font-size : 14px;">
+</div>
+
+<form name="form1" method="post">
+<input type="button" value="send text" onclick="return send_string(console.value);"><br>
+<input type="text" name="console" style="background-color:#000000;color:#66cc33;cursor:text;height:30pt;overflow:auto;font-size:14px;"
+       size="200" maxlength="4000" value=''>
+<br>
+<br>
+</form>
+</body>
+</html>
