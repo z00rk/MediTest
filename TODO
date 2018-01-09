@@ -1,0 +1,34 @@
+
+PROGRESS:
+  - Webserver 90%
+  - SQL Layer 60%
+  - Finite State Machine 70%
+
+NEXT:
+  - JSON-RPC Parser
+  - logging utility
+  - 
+
+LATER:
+  - SSDP server
+
+
+- Architecture will be based on a Finite State Machine (FSM).
+- We will implement a websocket server, a DIAL server
+- The FSM will be handled by two main threads : a commander and a messenger.
+- The commander will be responsible of receiving commands from UI and convert it to FSM command
+- The messenger will retreive the state or status from FSM and dispatch it to the UI
+- The DIAL server will be responsible of communicating the websocket server ip and port to any UI client that will try to connect to the core.
+- The UI client can be on the same host or over network
+- The commands sent by UIs will be formatted as CSON-JSON.
+- We will need :
+  - A websocket server implementation
+  - A DIAL server implementation
+  - A CSON/JSON parser
+
+Once a UI is started, it will send an SSDP request to discover the IP address and port of the websocket server.
+The DIAL server will answer with these information.
+The UI will then open a websocket.
+
+On server Side, once a SSDP request is received, it will broadcast the IP and port of the server and wait for a websocket request to connect.
+
