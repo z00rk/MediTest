@@ -1,0 +1,7 @@
+
+
+This part is responsible of linking core and interfaces together
+It will instantiate the ws server and later the SSDP server. It will also instanciate
+the octopus machine, convert the received WS messages into commands and receive the event and convert them into WS message to the UI
+
+This will be the main part the UI will interface with
