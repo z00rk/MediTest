@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <!-- main div -->
+    <div id="main-layout">
+      <!-- head menu div -->
+      <div id="main-layout-head" class="topnav">
+      </div>
+      <!-- patient medical information -->
+      <div class="row">
+        <div class="leftcolumn">
+          <div id="main-layout-patient">
+            <div id"main-layout-patient-details">
+              <!-- last patients table div -->
+              <div id="main-layout-patient-details-last-table" class="card">
+                <table id="patien-table-id">
+                  <tbody>
+                    <tr>
+                      <th> N° Dossier </th>
+                      <th> Nom </th>
+                      <th> Prénom </th>
+                      <th> RDV </th>
+                    </tr>
+                    <tr class="element">
+                      <td> 666 </td>
+                      <td> Mahdi </td>
+                      <td> Hajri </td>
+                      <td> 06/11/1988 </td>
+                    </tr>
+                    <tr class="element">
+                      <td> 665 </td>
+                      <td> Dhouha </td>
+                      <td> Abid </td>
+                      <td> 11/04/1988 </td>
+                    </tr>
+                    <!-- @TODO here we will be filling the table from dbase websocket command -->
+                  </tbody>
+                </table>
+              </div>
+              <!-- selected patient medical status -->
+              <div id="main-layout-patient-details-selected-med-info" class="card">
+                <!--
+                - If a patient in the table is selected, then we will extract info about the latest acts
+                and add a navbar to add a new act. The odontogram will also be placed here
+                - If no patient is selected, this will be a menu to add a new patient/act ...
+                - When first loaded, this will be as no patient is selected, then we will populate the
+                region accordingly
+                -->
+                <center class="fakeimg"></center>
+              </div>
+            </div>
+          </div>
+        </div><!-- class=leftcolumn -->
+        <div class="rightcolumn">
+          <!-- selected patient personal details -->
+          <div class="card">
+            <div id"main-layout-patient-selected-details">
+              <div class="fakeimg" style="height:100px;" id="selected-patient-details"></div>
+            </div>
+          </div> <!-- class=card ends here -->
+          <!-- Waiting Room status -->
+          <div class="card">
+            <div id="main-layout-waiting-room">
+              <div class="fakeimg" style="height:100px;" id="waiting-room"> 1 patient waiting</div>
+              <table id="waiting-room-patient-table">
+                <tbody>
+                  <tr>
+                    <th> Nom </th>
+                    <th> Prénom </th>
+                    <th> RDV </th>
+                  </tr>
+                  <tr class="element">
+                    <td> Mahdi </td>
+                    <td> Hajri </td>
+                    <td> 13h </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div> <!-- class=card ends here -->
+          <!-- agenda widget -->
+          <div class="card">
+            <div id="main-layout-calendar">
+              <div class="fakeimg" style="height:100px;" id="waiting-room"> Calendar </div>
+            </div>
+          </div> <!-- class=card ends here -->
+        </div><!-- class=leftcolumn -->
+      </div><!-- class=row -->
+  </body>
+</html>
