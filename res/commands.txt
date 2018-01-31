@@ -1,0 +1,19 @@
+
+This will describe the interaction (commands + events) between UI and backend.
+
+The list of commands and description is not exhaustive and will be updated
+accordingly.
+
+** Commands **
+
+* Done on splash screen :
+  - CEHCK_DB_CONNECT : check if a DB connection is available
+  - CONNECT_DB : open a connection to the database. 
+
+* When we have a successful connection to DB:
+  - GET_BY_DATE : get patient list by date (patient)
+  - GET_WAITING_ROOM : get list of patient on waiting room
+  - GET_PATIENT_DETAILS : get selected patient details
+  - ADD_PATIENT
+  - EDIT PATIENT
+  - REMOVE ?

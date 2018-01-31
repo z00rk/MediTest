@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/jquerysctipttop.css">
+    <link rel="stylesheet" type="text/css" href="./css/custom-calendar.css">
+    <link rel="stylesheet" type="text/css" href="./css/pretty-calendar.css">
+    <script src="./js/jquery-1.7.1.min.js"></script>
+    <script src="./js/pretty-calendar.js"></script>
+  </head>
+  <body>
+    <div id="main-layout">
+      <div id="main-layout-head" class="topnav">
+      </div>
+    <div id="main-layout-calendar-wrap"></div>
+    </div>
+    <script>
+      var events = [];
+      /**
+       * We will get events from DB
+       * we will populate the array 
+       * accordingly
+       **/
+
+      var weekday = new Array(7);
+      weekday[0] = "Dim";
+      weekday[1] = "Lun";
+      weekday[2] = "Mar";
+      weekday[3] = "Mer";
+      weekday[4] = "Jeu";
+      weekday[5] = "Ven";
+      weekday[6] = "Sam";
+
+      var prettyCal = new PrettyCalendar (events, "main-layout-calendar-wrap", false, weekday);
+    </script>
+  </body>
+</html>
