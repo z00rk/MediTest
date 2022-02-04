@@ -1,6 +1,6 @@
 
 /*
- * Copyright (c) |YEAR| Sagemcom Broadband
+ * 
  *
  * The computer program contained herein contains proprietary
  * information which is the property of Sagemcom Broadband.
