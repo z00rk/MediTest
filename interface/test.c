@@ -1,14 +1,4 @@
 
-/*
- * Copyright (c) |YEAR| Sagemcom Broadband
- *
- * The computer program contained herein contains proprietary
- * information which is the property of Sagemcom Broadband.
- * The program may be used and/or copied only with the written
- * permission of Sagemcom Broadband or in accordance with the
- * terms and conditions stipulated in the agreement/contract under
- * which the programs have been supplied.
- */
 
 #include <stdio.h>
 #include <stdlib.h>
